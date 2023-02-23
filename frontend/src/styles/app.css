@@ -64,3 +64,21 @@ body{
 #third_section_right_module{
     width: 30%;
 }
+
+@media screen and (max-width: 1000px) {
+    #third_section_adjust{
+        display: block;
+    }
+    #third_section_questions_list{
+        width: 100%;
+    }
+    #third_section_right_module{
+        width: 100%;
+    }
+ }
+
+ @media screen and (max-width: 550px) {
+    #ask_a_question_button{
+        font-size: 30%;
+    }
+ }

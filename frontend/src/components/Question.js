@@ -23,6 +23,7 @@ class Question extends React.Component {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ title: this.state.title, text: this.state.text }),
     };
+    console.log(requestOptions)
     fetch("http://127.0.0.1:8000/api/add_question/", requestOptions)
       .then((data) => data.json())
       .then((result) => console.log(result["message"]));
@@ -73,7 +74,7 @@ class Question extends React.Component {
                 />
               </div>
               <div style={{marginRight:"2%", width:"10%"}}>
-                <button onClick={this.add_question} id="post_button">
+                <button onClick={this.state.text !== "" && this.state.title !== "" ? this.add_question:null} id={this.state.text !== "" && this.state.title !== "" ?"shiny_post_button":"post_button"}>
                   Post
                 </button>
               </div>

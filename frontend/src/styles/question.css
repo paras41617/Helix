@@ -70,6 +70,22 @@
     cursor: pointer;
 }
 
+#shiny_post_button{
+  color: white;
+  background-color: #6074DD;
+  /* padding-left: 5%; */
+  padding-left: 1.5%;
+  padding-right: 1.5%;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  border-radius: 500px;
+  border: none;
+  margin-bottom: 2.5%;
+  width: 100%;
+  font-family: 'Poppins';
+  cursor: pointer;
+}
+
 .input_placeholder{
   border-radius: 12px 12px 0px 0px;
   border: 1px solid grey;

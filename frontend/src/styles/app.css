@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Rubik:wght@500&display=swap');
+
 body{
     background-color: rgba(247,247,247,255);
 }
@@ -14,13 +16,18 @@ body{
 
 #ask_a_question_button{
     color: white;
-    background-color: rgb(84, 84, 236);
+    background-color: #6074DD;
     /* padding-left: 5%; */
     padding: 0.8%;
     border-radius: 500px;
     border: none;
-    font-size: 70%;
     margin-left: 80%;
+    cursor: pointer;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
 }
 
 #second_section{
@@ -65,6 +72,12 @@ body{
     width: 30%;
 }
 
+
+.upvotes_collected_img{
+    width: 12px;
+    height: 12px;
+  }  
+
 @media screen and (max-width: 1000px) {
     #third_section_adjust{
         display: block;
@@ -82,3 +95,30 @@ body{
         font-size: 30%;
     }
  }
+
+.color_right_panel_experts{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 24px;
+    color: #6074DD;
+}
+
+.poppin_font{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 24px;
+    color: #51646D;
+}
+
+.right_panel_heading{
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    color: #34324C;
+}

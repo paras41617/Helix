@@ -8,12 +8,19 @@ class App extends React.Component {
     super(props);
     this.state = {
       question: false,
+      count_questions: 0,
     };
     this.question_mode_switch = this.question_mode_switch.bind(this);
   }
 
   question_mode_switch() {
     this.setState({ question: !this.state.question });
+  }
+
+  componentDidMount() {
+    fetch("http://127.0.0.1:8000/api/get_questions_count/")
+      .then((data) => data.json())
+      .then((result) => this.setState({ count_questions: result["count_questions"]}));
   }
 
   render() {
@@ -40,100 +47,80 @@ class App extends React.Component {
         <div id="third_section">
           <div id="third_section_adjust">
             <div id="third_section_questions_list">
-              {this.state.question ? <Question popup={this.question_mode_switch} /> : <List />}
+              {this.state.question ? (
+                <Question popup={this.question_mode_switch} />
+              ) : (
+                <List />
+              )}
             </div>
             <div id="third_section_right_module">
               <div class="card">
                 <div class="card-header"></div>
                 <div class="card-body">
-                  <h2>About</h2>
+                  <h2 className="right_panel_heading">About</h2>
                   <div class="user">
-                    <img
-                      src={require("../assets/group.PNG")}
-                      alt="user"
-                    />
+                    <img className="user_image" src={require("../assets/group.PNG")} alt="user" />
                     <div class="user-info">
-                      <small>246 Experts</small>
+                      <div className="poppin_font">246 Experts</div>
                     </div>
                   </div>
                   <div class="user">
-                    <img
-                      src={require("../assets/message.PNG")}
-                      alt="user"
-                    />
+                    <img className="user_image" src={require("../assets/message.PNG")} alt="user" />
                     <div class="user-info">
-                      <small>100k Questions and Answers</small>
+                      <div className="poppin_font">{this.state.count_questions} Questions</div>
                     </div>
                   </div>
                   <div class="user">
-                    <img
-                      src={require("../assets/up.PNG")}
-                      alt="user"
-                    />
+                    <img className="user_image" src={require("../assets/up.PNG")} alt="user" />
                     <div class="user-info">
-                      <small>50k Upvotes</small>
+                      <div className="poppin_font">50k Upvotes</div>
                     </div>
                   </div>
                   <div class="user">
-                    <img
-                      src={require("../assets/token.PNG")}
-                      alt="user"
-                    />
+                    <img className="user_image" src={require("../assets/token.PNG")} alt="user" />
                     <div class="user-info">
-                      <small>145 Token Awarded</small>
+                      <div className="poppin_font">145 Token Awarded</div>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="card">
-              <div class="card-header"></div>
-              <div class="card-body">
-                <h2>Top Experts</h2>
-                <div class="user">
-                  <img
-                    src={require("../assets/user.PNG")}
-                    alt="user"
-                  />
-                  <div class="user-info">
-                    <h5>Pseudo Neat Expert</h5>
-                    <small>47 Upvotes Collected</small>
+                <div class="card-header"></div>
+                <div class="card-body">
+                  <h2 className="right_panel_heading">Top Experts</h2>
+                  <div class="user">
+                    <img className="user_image" src={require("../assets/user.PNG")} alt="user" />
+                    <div class="user-info">
+                      <h5 className="color_right_panel_experts">Pseudo Neat Expert</h5>
+                      <small>47 <img className="upvotes_collected_img" src={require("../assets/Vector.png")} alt="user" /> Collected</small>
+                    </div>
                   </div>
-                </div>
-                &nbsp;
-                <div class="user">
-                  <img
-                    src={require("../assets/user.PNG")}
-                    alt="user"
-                  />
-                  <div class="user-info">
-                    <h5>Pseudo Neat Expert</h5>
-                    <small>47 Upvotes Collected</small>
+                  &nbsp;
+                  <div class="user">
+                    <img className="user_image" src={require("../assets/user.PNG")} alt="user" />
+                    <div class="user-info">
+                      <h5 className="color_right_panel_experts">Pseudo Neat Expert</h5>
+                      <small>47 <img className="upvotes_collected_img" src={require("../assets/Vector.png")} alt="user" /> Collected</small>
+                    </div>
                   </div>
-                </div>
-                &nbsp;
-                <div class="user">
-                  <img
-                    src={require("../assets/user.PNG")}
-                    alt="user"
-                  />
-                  <div class="user-info">
-                    <h5>Pseudo Neat Expert</h5>
-                    <small>47 Upvotes Collected</small>
+                  &nbsp;
+                  <div class="user">
+                    <img className="user_image" src={require("../assets/user.PNG")} alt="user" />
+                    <div class="user-info">
+                      <h5 className="color_right_panel_experts">Pseudo Neat Expert</h5>
+                      <small>47 <img className="upvotes_collected_img" src={require("../assets/Vector.png")} alt="user" /> Collected</small>
+                    </div>
                   </div>
-                </div>
-                &nbsp;
-                <div class="user">
-                  <img
-                    src={require("../assets/user.PNG")}
-                    alt="user"
-                  />
-                  <div class="user-info">
-                    <h5>Pseudo Neat Expert</h5>
-                    <small>47 Upvotes Collected</small>
+                  &nbsp;
+                  <div class="user">
+                    <img className="user_image" src={require("../assets/user.PNG")} alt="user" />
+                    <div class="user-info">
+                      <h5 className="color_right_panel_experts">Pseudo Neat Expert</h5>
+                      <small>47 <img className="upvotes_collected_img" src={require("../assets/Vector.png")} alt="user" /> Collected</small>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
             </div>
           </div>
         </div>

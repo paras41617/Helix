@@ -2,6 +2,9 @@ from django.http import JsonResponse
 from .models import *
 import json
 from django.views.decorators.csrf import csrf_exempt
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.response import Response
+from rest_framework import status
 
 @csrf_exempt
 def AddQuestionView(request):
@@ -25,6 +28,7 @@ def AddQuestionView(request):
 def ListQuestionsView(request):
     if request.method == "GET":
         questions = Question.objects.all()
+        # count_questions = Question.objects.count()
         ans = []
         for question in questions:
             ans.append({"title": question.title, "text": question.text})
@@ -32,3 +36,9 @@ def ListQuestionsView(request):
         return JsonResponse({"questions": ans}, status=200)
     else:
         return JsonResponse({"Method Not Allowed"}, status=404)
+
+@api_view(["GET"])
+@csrf_exempt
+def LenQuestionsView(request):
+    count_questions = Question.objects.count()
+    return JsonResponse({"count_questions": count_questions}, status=200)
